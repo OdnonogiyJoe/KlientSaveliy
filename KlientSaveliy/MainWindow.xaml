@@ -1,0 +1,48 @@
+﻿<Window x:Class="KlientSaveliy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KlientSaveliy"
+        mc:Ignorable="d"
+        Title="Володя автосервис" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Клиенты">
+            <ListView ItemsSource="{Binding Items}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO}" />
+                        <GridViewColumn Header="Адрес" DisplayMemberBinding="{Binding Addres}"/>
+                        <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding Number}"/>
+                        <GridViewColumn Header="Марка машины" DisplayMemberBinding="{Binding Mark}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+        
+        <GroupBox Header="Добавить клиента" Grid.Column="1">
+            <StackPanel>
+                <TextBlock Text="ФИО"/>
+                <TextBox Text="{Binding FIO}"/>
+                <TextBlock Text="Адрес"/>
+                <TextBox Text="{Binding Addres}"/>
+                <TextBlock Text="Номер"/>
+                <TextBox Text="{Binding Number}"/>
+                <TextBlock Text="Марка машины"/>
+                <TextBox Text="{Binding Mark}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Редактировать" 
+                        Command="{Binding EditClient}" Padding="5" Margin="5"/>
+                    <Button Content="Добавить" 
+                            Command="{Binding CreateClient}" Padding="5" Margin="5"/>
+                    <Button Content="Удалить" 
+                            Command="{Binding DeleteClient}" Padding="5" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
