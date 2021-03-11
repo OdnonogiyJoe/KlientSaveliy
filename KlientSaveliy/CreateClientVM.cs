@@ -17,7 +17,7 @@ namespace KlientSaveliy
         public void SetModel(Model model)
         {
             this.model = model;
-            ClientInfos = model.GetClients();
+            ClientInfos = model.GetClients();//424724
             CreateClient = new Mvvm1125.MvvmCommand(
                 () =>
                 {
